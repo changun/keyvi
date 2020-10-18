@@ -145,8 +145,7 @@ class NeedlemanWunsch final {
 
         if (row > completion_row_) {
           completion_result = distance_matrix_.Get(row - 1, column) + cost_function_.GetCompletionCost();
-        } else if (column + 1 == columns && columns > 1 &&
-                   compare_sequence_[last_put_position_ - 1] == input_sequence_.back()) {
+        } else if (column + 1 == columns && columns > 1) {
           completion_row_ = row;
           completion_result = distance_matrix_.Get(row - 1, column) + cost_function_.GetCompletionCost();
         }
